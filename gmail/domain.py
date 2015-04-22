@@ -38,5 +38,5 @@ def from_domain(message):
 
 counter = collections.Counter()
 counter.update(from_domain(message) for message in messages)
-for domain, count in counter.most_common(len(counter)):
+for domain, count in counter.most_common():
     print domain, count
