@@ -32,7 +32,7 @@ for msgid in msgids:
 def from_domain(message):
     addr = message['From']
     mail = email.utils.parseaddr(addr)[1]
-    domain = mail.rsplit('@', 1)[1]
+    domain = mail.rpartition('@')[-1]
     domain = domain.lower()
     return domain
 
