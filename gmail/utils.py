@@ -18,7 +18,10 @@ def extract_url(message):
     return url
 
 def title_of_url(url):
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+    except requests.exceptions.ConnectionError:
+        return 'connection error'
     status = response.status_code
     if status != 200:
         return 'status {}'.format(status)
