@@ -1,5 +1,6 @@
 import collections
 import email
+import time
 
 from imapclient import IMAPClient
 
@@ -32,6 +33,13 @@ for msgid in msgids:
     messages.append(message)
 
 counter = collections.Counter()
-counter.update(utils.from_domain(message) for message in messages)
+latest = collections.defaultdict(int)
+for message in messages:
+    domain = utils.from_domain(message)
+    timestamp = utils.date_timestamp(message)
+    counter[domain] = counter[domain] + 1
+    latest[domain] = max(latest[domain], timestamp)
+
 for domain, count in counter.most_common():
-    print domain, count
+    date = time.strftime('%Y-%m-%d', time.localtime(latest[domain]))
+    print domain, count, date

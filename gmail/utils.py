@@ -11,6 +11,12 @@ def from_domain(message):
     domain = domain.lower()
     return domain
 
+def date_timestamp(message):
+    date = message['Date']
+    parsed = email.utils.parsedate_tz(date)
+    timestamp = email.utils.mktime_tz(parsed)
+    return timestamp
+
 def extract_url(message):
     assert message.get_content_type() == 'text/plain'
     url = message.get_payload().strip()
