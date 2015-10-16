@@ -1,0 +1,10 @@
+COMPILERS='gcc clang gcc-pgo clang-pgo'
+
+run_perf () { perf stat -x , -e cpu-clock -r 10 "$@" 2>&1; }
+
+cd bzip2
+
+for COMPILER in $COMPILERS; do
+  echo -n $COMPILER,
+  run_perf ./bzip2-$COMPILER -d -k -f manual.pdf.bz2
+done
