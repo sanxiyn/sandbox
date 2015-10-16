@@ -11,27 +11,27 @@ bzip2 -k manual.pdf
 cp manual.pdf ../bzip2
 cp manual.pdf.bz2 ../bzip2
 
-make CC=gcc CFLAGS='-O2'
+make bzip2 CC=gcc CFLAGS='-O2'
 cp bzip2 ../bzip2/bzip2-gcc
 make clean
 
-make CC=clang CFLAGS='-O2'
+make bzip2 CC=clang CFLAGS='-O2'
 cp bzip2 ../bzip2/bzip2-clang
 make clean
 
-make CC=gcc CFLAGS='-O2 -fprofile-generate'
+make bzip2 CC=gcc CFLAGS='-O2 -fprofile-generate'
 ./bzip2 -d -k -f manual.pdf.bz2
 make clean
-make CC=gcc CFLAGS='-O2 -fprofile-use'
+make bzip2 CC=gcc CFLAGS='-O2 -fprofile-use'
 cp bzip2 ../bzip2/bzip2-gcc-pgo
 make clean
 rm *.gcda
 
-make CC=clang CFLAGS='-O2 -fprofile-generate'
+make bzip2 CC=clang CFLAGS='-O2 -fprofile-generate'
 ./bzip2 -d -k -f manual.pdf.bz2
 llvm-profdata merge default.profraw -output=default.profdata
 make clean
-make CC=clang CFLAGS='-O2 -fprofile-use'
+make bzip2 CC=clang CFLAGS='-O2 -fprofile-use'
 cp bzip2 ../bzip2/bzip2-clang-pgo
 make clean
 rm default.*
