@@ -1,0 +1,42 @@
+mkdir picosat
+
+gcc --version > picosat/gcc-version
+clang --version > picosat/clang-version
+
+curl -O http://fmv.jku.at/picosat/picosat-960.tar.gz
+tar -z -x -f picosat-960.tar.gz
+cd picosat-960
+
+curl -O http://www.satlib.org/Benchmarks/SAT/BMC/bmc-ibm-1.cnf
+cp bmc-ibm-1.cnf ../picosat
+
+CC=cc ./configure
+
+make picosat CC=gcc CFLAGS='-DNDEBUG -O3'
+cp picosat ../picosat/picosat-gcc
+rm *.a *.o picosat
+
+make picosat CC=clang CFLAGS='-DNDEBUG -O3'
+cp picosat ../picosat/picosat-clang
+rm *.a *.o picosat
+
+make picosat CC=gcc CFLAGS='-DNDEBUG -O3 -fprofile-generate'
+./picosat bmc-ibm-1.cnf -o /dev/null
+rm *.a *.o picosat
+make picosat CC=gcc CFLAGS='-DNDEBUG -O3 -fprofile-use'
+cp picosat ../picosat/picosat-gcc-pgo
+rm *.a *.o picosat
+rm *.gcda
+
+make picosat CC=clang CFLAGS='-DNDEBUG -O3 -fprofile-generate'
+./picosat bmc-ibm-1.cnf -o /dev/null
+llvm-profdata merge default.profraw -output=default.profdata
+rm *.a *.o picosat
+make picosat CC=clang CFLAGS='-DNDEBUG -O3 -fprofile-use'
+cp picosat ../picosat/picosat-clang-pgo
+rm *.a *.o picosat
+rm default.*
+
+cd ..
+rm -rf picosat-960
+rm picosat-960.tar.gz
