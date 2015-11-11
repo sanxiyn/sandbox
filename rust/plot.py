@@ -119,6 +119,7 @@ def plot_time(ax, pass_name):
     ax.set_title(pass_name.title())
     setup_x_axis(ax)
     ax.set_ylabel('time (%)')
+    ax.set_ylim(50, 150)
     ax.axhline(100, color='black')
     ax.legend()
 
