@@ -1,0 +1,7 @@
+crates=`cat crates`
+mkdir crate
+cd crate
+for crate in $crates; do
+  python ../get.py $crate
+done
+cd ..

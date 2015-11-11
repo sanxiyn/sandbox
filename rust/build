@@ -1,0 +1,18 @@
+cd toolchain
+toolchains=`ls`
+cd ..
+cd crate
+crates=`ls`
+cd ..
+for toolchain in $toolchains; do
+  for crate in $crates; do
+    if [ ! -d toolchain/$toolchain/$crate ]; then
+      cp -a crate/$crate toolchain/$toolchain
+    fi
+    echo $toolchain $crate
+    cd toolchain/$toolchain/$crate
+    cargo build
+    cargo build --release
+    cd ../../..
+  done
+done

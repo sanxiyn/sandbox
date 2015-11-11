@@ -1,0 +1,10 @@
+toolchains=`cat toolchains`
+mkdir toolchain
+cd toolchain
+for toolchain in $toolchains; do
+  mkdir $toolchain
+  cd $toolchain
+  multirust override $toolchain
+  cd ..
+done
+cd ..
