@@ -1,0 +1,24 @@
+cd toolchain
+toolchains=`ls`
+cd ..
+cd crate
+crates=`ls`
+cd ..
+for toolchain in $toolchains; do
+  for crate in $crates; do
+    name=${crate%-*}
+    cd toolchain/$toolchain/$crate
+    if [ -f time.log ]; then
+      cd ../../..
+      continue
+    fi
+    echo -n $toolchain $crate' '
+    for i in `seq 10`; do
+      echo -n .
+      cargo clean -p $name
+      cargo rustc -- -Z time-passes >> time.log
+    done
+    echo
+    cd ../../..
+  done
+done
