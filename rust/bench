@@ -16,7 +16,7 @@ for toolchain in $toolchains; do
     for i in `seq 10`; do
       echo -n .
       cargo clean -p $name
-      cargo rustc -- -Z time-passes >> time.log
+      cargo rustc --lib -- -Z time-passes >> time.log
     done
     echo
     cd ../../..
