@@ -90,46 +90,54 @@ def setup_x_axis(ax):
         ax.axvline(xi, color='black', linestyle='dotted')
 
 def plot_size(ax, profile):
+    lines = []
     for crate in crates:
         paths = [get_path(tool, crate, profile) for tool in tools]
         sizes = [float(os.path.getsize(path)) for path in paths]
         base = sizes[0]
         y = [size / base * 100 for size in sizes]
-        ax.plot(x, y, label=crate)
+        line, = ax.plot(x, y, label=crate)
+        lines.append(line)
     ax.set_title(profile.title())
     setup_x_axis(ax)
     ax.set_ylabel('size (%)')
     ax.set_ylim(60, 120)
     ax.axhline(100, color='black')
-    ax.legend()
+    return lines
 
 def figure_size():
-    plt.figure(figsize=(12, 5))
+    fig = plt.figure(figsize=(12, 6))
     debug = plt.subplot(1, 2, 1)
-    plot_size(debug, 'debug')
+    lines = plot_size(debug, 'debug')
     release = plt.subplot(1, 2, 2)
     plot_size(release, 'release')
-    plt.savefig('size.png')
+    plt.subplots_adjust(bottom=0.2)
+    fig.legend(lines, crates, 'lower center', ncol=5)
+    plt.savefig('size-2.png')
 
 def plot_time(ax, pass_name):
+    lines = []
     for crate in crates:
         times = [get_pass_data(tool, crate, pass_name) for tool in tools]
         y, yerr = avg_and_err(times)
-        ax.errorbar(x, y, yerr, label=crate)
+        line, _, _ = ax.errorbar(x, y, yerr, label=crate)
+        lines.append(line)
     ax.set_title(pass_name.title())
     setup_x_axis(ax)
     ax.set_ylabel('time (%)')
     ax.set_ylim(50, 150)
     ax.axhline(100, color='black')
-    ax.legend()
+    return lines
 
 def figure_time():
-    plt.figure(figsize=(12, 5))
+    fig = plt.figure(figsize=(12, 6))
     tc = plt.subplot(1, 2, 1)
-    plot_time(tc, 'type checking')
+    lines = plot_time(tc, 'type checking')
     tr = plt.subplot(1, 2, 2)
     plot_time(tr, 'translation')
-    plt.savefig('time.png')
+    plt.subplots_adjust(bottom=0.2)
+    fig.legend(lines, crates, 'lower center', ncol=5)
+    plt.savefig('time-2.png')
 
 figure_size()
 figure_time()
