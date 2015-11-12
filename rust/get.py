@@ -17,17 +17,24 @@ def download(crate, version):
     tar = tarfile.open(fileobj=fileobj)
     tar.extractall()
 
+def download_all(path):
+    f = open(path)
+    for line in f:
+        args = line.split()
+        if len(args) == 1:
+            crate, = args
+            version = max_version(crate)
+        elif len(args) == 2:
+            crate, version = args
+        download(crate, version)
+        print '{}-{}'.format(crate, version)
+    f.close()
+
 import sys
 args = sys.argv[1:]
-if len(args) not in (1, 2):
-    print 'Usage: get.py crate [version]'
+if len(args) != 1:
+    print 'Usage: get.py crates'
     sys.exit()
+path, = args
 
-if len(args) == 1:
-    crate, = args
-    version = max_version(crate)
-elif len(args) == 2:
-    crate, version = args
-
-download(crate, version)
-print '{}-{}'.format(crate, version)
+download_all(path)
