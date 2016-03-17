@@ -1,4 +1,8 @@
-toolchains=`cat toolchains`
+if [ $# -ne 1 ]; then
+  echo Usage: setup toolchains
+  exit
+fi
+toolchains=`cat $1`
 mkdir toolchain
 cd toolchain
 for toolchain in $toolchains; do
