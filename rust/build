@@ -12,7 +12,6 @@ for toolchain in $toolchains; do
     echo $toolchain $crate
     cd toolchain/$toolchain/$crate
     cargo build
-    cargo build --release
     cd ../../..
   done
 done
