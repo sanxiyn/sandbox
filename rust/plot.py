@@ -50,14 +50,18 @@ def get_pass_data(toolchain, crate, pass_name):
     date = date_of_toolchain(toolchain)
     path = get_log_path(toolchain, crate)
     data = get_log_data(path)
+    # See #30389
+    if date < datetime.date(2015, 12, 19):
+        data['wf checking'] = map(sum, zip(
+            data['wf checking (old)'],
+            data['wf checking (new)']))
     # See #27641
     if date >= datetime.date(2015, 8, 15):
         data['type checking'] = map(sum, zip(
-            data['wf checking (old)'],
+            data['wf checking'],
             data['item-types checking'],
             data['item-bodies checking'],
-            data['drop-impl checking'],
-            data['wf checking (new)']))
+            data['drop-impl checking']))
     return data[pass_name]
 
 def avg_and_err(datas):
