@@ -119,29 +119,30 @@ def figure_size():
     fig.legend(lines, crates, 'lower center', ncol=5)
     plt.savefig('size-2.png')
 
-def plot_time(ax, pass_name):
+def plot_time(ax, pass_name, display_name=None):
+    if display_name is None:
+        display_name = pass_name
     lines = []
     for crate in crates:
         times = [get_pass_data(tool, crate, pass_name) for tool in tools]
         y, yerr = avg_and_err(times)
         line, _, _ = ax.errorbar(x, y, yerr, label=crate)
         lines.append(line)
-    ax.set_title(pass_name.title())
+    ax.set_title(display_name.title())
     setup_x_axis(ax)
     ax.set_ylabel('time (%)')
-    ax.set_ylim(50, 150)
+    ax.set_ylim(60, 180)
     ax.axhline(100, color='black')
     return lines
 
 def figure_time():
     fig = plt.figure(figsize=(12, 6))
     tc = plt.subplot(1, 2, 1)
-    lines = plot_time(tc, 'type checking')
+    lines = plot_time(tc, 'item-bodies checking', 'type checking')
     tr = plt.subplot(1, 2, 2)
     plot_time(tr, 'translation')
     plt.subplots_adjust(bottom=0.2)
     fig.legend(lines, crates, 'lower center', ncol=5)
-    plt.savefig('time-2.png')
+    plt.savefig('time-3.png')
 
-figure_size()
 figure_time()
