@@ -131,7 +131,7 @@ def plot_time(ax, pass_name, display_name=None):
     ax.set_title(display_name.title())
     setup_x_axis(ax)
     ax.set_ylabel('time (%)')
-    ax.set_ylim(60, 180)
+    ax.set_ylim(50, 150)
     ax.axhline(100, color='black')
     return lines
 
@@ -143,6 +143,6 @@ def figure_time():
     plot_time(tr, 'translation')
     plt.subplots_adjust(bottom=0.2)
     fig.legend(lines, crates, 'lower center', ncol=5)
-    plt.savefig('time-3.png')
+    plt.savefig('time-4.png')
 
 figure_time()

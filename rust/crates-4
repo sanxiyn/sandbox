@@ -1,0 +1,5 @@
+docopt 0.6.75
+handlebars 0.12.1
+jpeg-decoder 0.1.6
+postgres 0.8.9
+url 0.2.37
