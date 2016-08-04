@@ -1,0 +1,8 @@
+if [ $# -ne 1 ]; then
+  echo Usage: get crates
+  exit
+fi
+mkdir crate
+cd crate
+python ../get.py ../$1
+cd ..
