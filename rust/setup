@@ -8,7 +8,7 @@ cd toolchain
 for toolchain in $toolchains; do
   mkdir $toolchain
   cd $toolchain
-  multirust override $toolchain
+  rustup override set $toolchain
   cd ..
 done
 cd ..
