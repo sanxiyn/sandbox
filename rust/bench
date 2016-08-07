@@ -5,6 +5,7 @@ cd crate
 crates=`ls`
 cd ..
 for toolchain in $toolchains; do
+  date=${toolchain#*-}
   for crate in $crates; do
     name=${crate%-*}
     cd toolchain/$toolchain/$crate
@@ -17,6 +18,10 @@ for toolchain in $toolchains; do
       echo -n .
       cargo clean -p $name
       cargo rustc --lib -- -Z time-passes >> time.log
+      # See #32080
+      if [ ! $date \< 2016-03-19 ]; then
+        cargo rustc --lib -- -Z time-passes -Z orbit >> mir.log
+      fi
     done
     echo
     cd ../../..
