@@ -32,24 +32,25 @@ def get_log_path(toolchain, crate):
     return os.path.join(crate_root, 'time.log')
 
 time_pattern = re.compile(r'time: ([0-9.]+)')
+mem_pattern = re.compile(r'rss: ([0-9]+)MB')
 
-def get_log_data(path):
+def get_log_data(path, pattern):
     data = {}
     f = open(path)
     for line in f:
         line = line.strip()
         if not line.startswith('time: '):
             continue
-        time_info, pass_name = line.split('\t')
-        time = float(time_pattern.match(time_info).group(1))
-        data.setdefault(pass_name, []).append(time)
+        pass_info, pass_name = line.split('\t')
+        value = float(pattern.search(pass_info).group(1))
+        data.setdefault(pass_name, []).append(value)
     f.close()
     return data
 
-def get_pass_data(toolchain, crate, pass_name):
+def get_pass_data(toolchain, crate, pass_name, pattern):
     date = date_of_toolchain(toolchain)
     path = get_log_path(toolchain, crate)
-    data = get_log_data(path)
+    data = get_log_data(path, pattern)
     # See #30389
     if date < datetime.date(2015, 12, 19):
         data['wf checking'] = map(sum, zip(
@@ -124,7 +125,8 @@ def plot_time(ax, pass_name, display_name=None):
         display_name = pass_name
     lines = []
     for crate in crates:
-        times = [get_pass_data(tool, crate, pass_name) for tool in tools]
+        times = [get_pass_data(tool, crate, pass_name, time_pattern)
+            for tool in tools]
         y, yerr = avg_and_err(times)
         line, _, _ = ax.errorbar(x, y, yerr, label=crate)
         lines.append(line)
@@ -145,4 +147,30 @@ def figure_time():
     fig.legend(lines, crates, 'lower center', ncol=5)
     plt.savefig('time-4.png')
 
+def plot_mem(ax, pass_name, display_name=None):
+    if display_name is None:
+        display_name = pass_name
+    lines = []
+    for crate in crates:
+        mems = [get_pass_data(tool, crate, pass_name, mem_pattern)
+            for tool in tools]
+        y, yerr = avg_and_err(mems)
+        line, _, _ = ax.errorbar(x, y, yerr, label=crate)
+        lines.append(line)
+    ax.set_title(display_name.title())
+    setup_x_axis(ax)
+    ax.set_ylabel('mem (%)')
+    ax.set_ylim(50, 150)
+    ax.axhline(100, color='black')
+    return lines
+
+def figure_mem():
+    fig = plt.figure(figsize=(8, 5))
+    ax = plt.subplot(1, 1, 1)
+    lines = plot_mem(ax, 'translation', 'memory')
+    plt.subplots_adjust(right=0.625)
+    fig.legend(lines, crates)
+    plt.savefig('mem-4.png')
+
 figure_time()
+figure_mem()
