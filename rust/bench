@@ -17,10 +17,12 @@ for toolchain in $toolchains; do
     for i in `seq 10`; do
       echo -n .
       cargo clean -p $name
-      cargo rustc --lib -- -Z time-passes >> time.log
+      cargo rustc --lib -- \
+        -A warnings -Z time-passes >>time.log 2>/dev/null
       # See #32080
       if [ ! $date \< 2016-03-19 ]; then
-        cargo rustc --lib -- -Z time-passes -Z orbit >> mir.log
+        cargo rustc --lib -- \
+          -A warnings -Z time-passes -Z orbit >>mir.log 2>/dev/null
       fi
     done
     echo
