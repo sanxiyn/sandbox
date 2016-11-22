@@ -14,16 +14,14 @@ with open('username') as f:
 with open('password') as f:
     password = f.read()
 
-import sys
-args = sys.argv[1:]
-if len(args) != 1:
-    print 'Usage: count.py folder'
-    sys.exit()
-folder, = args
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('folder')
+args = parser.parse_args()
 
 imap = IMAPClient(host, ssl=True)
 imap.login(username, password)
-imap.select_folder(folder)
+imap.select_folder(args.folder)
 msgids = imap.search()
 response = imap.fetch(msgids, ['BODY.PEEK[HEADER]'])
 messages = []
