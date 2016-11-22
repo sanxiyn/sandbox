@@ -17,7 +17,7 @@ with open('password') as f:
 import sys
 args = sys.argv[1:]
 if len(args) != 1:
-    print 'Usage: domain.py folder'
+    print 'Usage: count.py folder'
     sys.exit()
 folder, = args
 
