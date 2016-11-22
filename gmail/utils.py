@@ -4,9 +4,13 @@ import urlparse
 import lxml.html
 import requests
 
-def from_domain(message):
+def from_address(message):
     addr = message['From']
     mail = email.utils.parseaddr(addr)[1]
+    return mail
+
+def from_domain(message):
+    mail = from_address(message)
     domain = mail.rpartition('@')[-1]
     domain = domain.lower()
     return domain
