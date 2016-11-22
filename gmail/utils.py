@@ -15,6 +15,11 @@ def from_domain(message):
     domain = domain.lower()
     return domain
 
+def from_name(message):
+    addr = message['From']
+    name = email.utils.parseaddr(addr)[0]
+    return name
+
 def date_timestamp(message):
     date = message['Date']
     parsed = email.utils.parsedate_tz(date)

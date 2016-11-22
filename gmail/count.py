@@ -20,6 +20,7 @@ parser = argparse.ArgumentParser()
 group = parser.add_mutually_exclusive_group()
 group.add_argument('-a', '--address', action='store_true')
 group.add_argument('-d', '--domain', action='store_true')
+group.add_argument('-n', '--name', action='store_true')
 parser.add_argument('folder')
 args = parser.parse_args()
 
@@ -27,8 +28,10 @@ if args.address:
     make_key = utils.from_address
 elif args.domain:
     make_key = utils.from_domain
+elif args.name:
+    make_key = utils.from_name
 else:
-    print 'One of --address or --domain is required'
+    print 'One of --address, --domain, --name is required'
     sys.exit()
 
 imap = IMAPClient(host, ssl=True)
