@@ -2,7 +2,8 @@ import collections
 import email
 import multiprocessing
 
-from imapclient import IMAPClient
+import imapclient
+from backports import ssl
 
 import utils
 
@@ -21,7 +22,9 @@ if len(args) != 1:
     sys.exit()
 folder, = args
 
-imap = IMAPClient(host, ssl=True)
+context = imapclient.create_default_context()
+context.verify_mode = ssl.CERT_NONE
+imap = IMAPClient(host, ssl=True,  ssl_context=context)
 imap.login(username, password)
 imap.select_folder(folder)
 msgids = imap.search()

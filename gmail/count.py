@@ -3,7 +3,8 @@ import email
 import sys
 import time
 
-from imapclient import IMAPClient
+import imapclient
+from backports import ssl
 
 import utils
 
@@ -34,7 +35,9 @@ else:
     print 'One of --address, --domain, --name is required'
     sys.exit()
 
-imap = IMAPClient(host, ssl=True)
+context = imapclient.create_default_context()
+context.verify_mode = ssl.CERT_NONE
+imap = imapclient.IMAPClient(host, ssl=True, ssl_context=context)
 imap.login(username, password)
 imap.select_folder(args.folder)
 msgids = imap.search()
