@@ -20,6 +20,10 @@ def from_name(message):
     name = email.utils.parseaddr(addr)[0]
     return name
 
+def from_subject(message):
+    subject = message['Subject']
+    return subject
+
 def date_timestamp(message):
     date = message['Date']
     parsed = email.utils.parsedate_tz(date)
