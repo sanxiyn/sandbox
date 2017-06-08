@@ -22,6 +22,17 @@ class BeHappy2daySpider(scrapy.Spider):
 
     def parse(self, response):
         id = get_value(response, 'i')
-        image = response.css('img.sp_menu_avatar')[0]
-        url = resolve(response, image)
-        yield {'id': id, 'url': url}
+        avatar = response.css('img.sp_menu_avatar')[0]
+        profiles = response.css('div.profile-photo img')
+        yield {
+            'id': '{}-{}-{}'.format(self.name, id, 'avatar'),
+            'url': resolve(response, avatar)
+        }
+        yield {
+            'id': '{}-{}-{}'.format(self.name, id, 'profile1'),
+            'url': resolve(response, profiles[0])
+        }
+        yield {
+            'id': '{}-{}-{}'.format(self.name, id, 'profile2'),
+            'url': resolve(response, profiles[1])
+        }
