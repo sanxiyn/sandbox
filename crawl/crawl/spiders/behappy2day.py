@@ -15,8 +15,16 @@ def get_value(response, key):
 class BeHappy2daySpider(scrapy.Spider):
     name = 'behappy2day'
 
+    def __init__(self, start=None, end=None):
+        if start is None:
+            raise Exception('start is required')
+        if end is None:
+            raise Exception('end is required')
+        self.start = int(start)
+        self.end = int(end)
+
     def start_requests(self):
-        for i in range(30000, 31000):
+        for i in range(self.start, self.end):
             url = 'https://www.behappy2day.com/girls_info.php?i={}'.format(i)
             yield scrapy.Request(url, self.parse)
 

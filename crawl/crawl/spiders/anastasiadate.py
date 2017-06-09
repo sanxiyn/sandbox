@@ -15,8 +15,16 @@ def get_value(response, key):
 class AnastasiaDateSpider(scrapy.Spider):
     name = 'anastasiadate'
 
+    def __init__(self, start=None, end=None):
+        if start is None:
+            raise Exception('start is required')
+        if end is None:
+            raise Exception('end is required')
+        self.start = int(self.start)
+        self.end = int(self.end)
+
     def start_requests(self):
-        for i in range(1800000, 1801000):
+        for i in range(self.start, self.end):
             url = 'http://www.anastasiadate.com/pages/lady/profile/profilepreview.aspx?LadyID={}'.format(i)
             yield scrapy.Request(url, self.parse)
 
