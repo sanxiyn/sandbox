@@ -20,8 +20,8 @@ class AnastasiaDateSpider(scrapy.Spider):
             raise Exception('start is required')
         if end is None:
             raise Exception('end is required')
-        self.start = int(self.start)
-        self.end = int(self.end)
+        self.start = int(start)
+        self.end = int(end)
 
     def start_requests(self):
         for i in range(self.start, self.end):
