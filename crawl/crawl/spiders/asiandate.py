@@ -9,7 +9,10 @@ def resolve(response, image):
     return urlparse.urljoin(response.url, get(image, 'href'))
 
 def get_value(response, key):
-    query = urlparse.urlsplit(response.url).query
+    url = response.url
+    if 'redirect_urls' in response.meta:
+        url = response.meta['redirect_urls'][0]
+    query = urlparse.urlsplit(url).query
     return urlparse.parse_qs(query)[key][0]
 
 class AsianDateSpider(scrapy.Spider):
