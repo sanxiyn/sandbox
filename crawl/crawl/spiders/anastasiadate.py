@@ -35,11 +35,13 @@ class AnastasiaDateSpider(scrapy.Spider):
         if 'profile-is-unavailable' in response.url:
             return
         id = get_value(response, 'LadyID')
-        thumbnail = response.css('.lady-star-name div.lady-thumbnail-container img')[0]
+        thumbnails = response.css('.lady-star-name div.lady-thumbnail-container img')
         profiles = response.css('div.photo-wrapper img')
+        if not (len(thumbnails) == 2 and len(profiles) == 2):
+            return
         yield {
             'id': '{}-{}-{}'.format(self.name, id, 'thumbnail'),
-            'url': resolve(response, thumbnail)
+            'url': resolve(response, thumbnails[0])
         }
         yield {
             'id': '{}-{}-{}'.format(self.name, id, 'profile1'),
