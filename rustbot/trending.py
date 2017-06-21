@@ -9,24 +9,17 @@ def get_trending(language):
     response = requests.get(url)
     html = lxml.html.fromstring(response.text)
     lines = []
-    for item in html.cssselect('.repo-list-item'):
-        d = dict((child.get('class'), child) for child in item)
-        name = ''.join(d['repo-list-name'].text_content().split())
+    for item in html.cssselect('.repo-list li'):
+        name = ''.join(item.cssselect('h3')[0].text_content().split())
         repo = 'https://github.com/' + name
-        desc = None
-        if 'repo-list-description' in d:
-            desc = d['repo-list-description'].text.strip()
-        # U+2022 BULLET
-        meta = d['repo-list-meta'].text.split(u'\u2022')
+        desc = item.cssselect('p')[0].text.strip()
+        meta = item.cssselect('span .octicon-star')
         star = None
-        if len(meta) == 3 and 'star' in meta[1]:
-            star = meta[1].strip()
+        if meta:
+            star = meta[0].tail.strip()
         if star is None:
             break
-        if desc is None:
-            line = '[trending] %s (%s)' % (repo, star)
-        else:
-            line = '[trending] %s - %s (%s)' % (repo, desc, star)
+        line = '[trending] %s - %s (%s)' % (repo, desc, star)
         lines.append(line)
     return lines
 
