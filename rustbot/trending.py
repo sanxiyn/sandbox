@@ -34,11 +34,19 @@ class Trending(irc.client.SimpleIRCClient):
     def on_disconnect(self, *args):
         sys.exit()
     def go(self):
-        lines = get_trending('rust')
-        for line in lines:
+        for line in get_trending('rust'):
             self.connection.privmsg(self.channel, line)
         self.connection.quit()
 
-client = Trending('#rust')
-client.connect('irc.ozinger.org', 6667, 'rustbot')
-client.start()
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--irc', action='store_true')
+args = parser.parse_args()
+
+if args.irc:
+    client = Trending('#rust')
+    client.connect('irc.ozinger.org', 6667, 'rustbot')
+    client.start()
+else:
+    for line in get_trending('rust'):
+        print line
