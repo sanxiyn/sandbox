@@ -19,8 +19,8 @@ for toolchain in $toolchains; do
       cargo clean -p $name
       cargo rustc --lib -- \
         -A warnings -Z time-passes >>time.log 2>/dev/null
-      # See #32080
-      if [ ! $date \< 2016-03-19 ]; then
+      # See #32080 and #34096
+      if [ ! $date \< 2016-03-19 -a $date \< 2016-08-02 ]; then
         cargo rustc --lib -- \
           -A warnings -Z time-passes -Z orbit >>mir.log 2>/dev/null
       fi
