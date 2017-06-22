@@ -58,11 +58,16 @@ def get_pass_data(toolchain, crate, pass_name, pattern):
             data['wf checking (new)']))
     # See #27641
     if date >= datetime.date(2015, 8, 15):
+        passes = [
+            'wf checking',
+            'item-types checking',
+            'item-bodies checking'
+        ]
+        # See #40178
+        if date < datetime.date(2017, 3, 3):
+            passes.append('drop-impl checking')
         data['type checking'] = map(sum, zip(
-            data['wf checking'],
-            data['item-types checking'],
-            data['item-bodies checking'],
-            data['drop-impl checking']))
+            *(data[pass_] for pass_ in passes)))
     return data[pass_name]
 
 def avg_and_err(datas):
