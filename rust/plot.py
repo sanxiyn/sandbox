@@ -150,7 +150,7 @@ def figure_time():
     plot_time(tr, 'translation')
     plt.subplots_adjust(bottom=0.2)
     fig.legend(lines, crates, 'lower center', ncol=5)
-    plt.savefig('time-4.png')
+    plt.savefig('time-5.png')
 
 def plot_mem(ax, pass_name, display_name=None):
     if display_name is None:
@@ -175,7 +175,7 @@ def figure_mem():
     lines = plot_mem(ax, 'translation', 'memory')
     plt.subplots_adjust(right=0.625)
     fig.legend(lines, crates)
-    plt.savefig('mem-4.png')
+    plt.savefig('mem-5.png')
 
 figure_time()
 figure_mem()
