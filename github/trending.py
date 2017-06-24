@@ -41,6 +41,7 @@ class Trending(irc.client.SimpleIRCClient):
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--irc', action='store_true')
+parser.add_argument('language')
 args = parser.parse_args()
 
 if args.irc:
@@ -48,5 +49,5 @@ if args.irc:
     client.connect('irc.ozinger.org', 6667, 'rustbot')
     client.start()
 else:
-    for line in get_trending('rust'):
+    for line in get_trending(args.language):
         print line
