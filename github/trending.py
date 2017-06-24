@@ -12,14 +12,20 @@ def get_trending(language):
     for item in html.cssselect('.repo-list li'):
         name = ''.join(item.cssselect('h3')[0].text_content().split())
         repo = 'https://github.com/' + name
-        desc = item.cssselect('p')[0].text.strip()
+        desc = None
+        p = item.cssselect('p')
+        if p:
+            desc = p[0].text.strip()
         meta = item.cssselect('span .octicon-star')
         star = None
         if meta:
             star = meta[0].tail.strip()
         if star is None:
             break
-        line = '[trending] %s - %s (%s)' % (repo, desc, star)
+        if desc is None:
+            line = '[trending] %s (%s)' % (repo, star)
+        else:
+            line = '[trending] %s - %s (%s)' % (repo, desc, star)
         lines.append(line)
     return lines
 
