@@ -17,6 +17,7 @@ bsdmainutils
 bsdutils
 build-essential
 bzip2
+cabal-install
 cloc
 cmake
 command-not-found
@@ -31,12 +32,14 @@ debconf-i18n
 debian-archive-keyring
 debian-goodies
 debianutils
+devscripts
 diffstat
 diffutils
 dlocate
 dnsutils
 dpkg
 e2fsprogs
+ffmpeg
 file
 findutils
 firefox
@@ -52,6 +55,7 @@ fonts-symbola
 gawk
 gdb
 geeqie
+ghc
 git
 grep
 grub-pc
