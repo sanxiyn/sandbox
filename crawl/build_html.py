@@ -11,18 +11,18 @@ def read(filename):
     result = []
     with open(filename) as f:
         for line in f:
-            image = json.loads(line)
-            result.append(image)
+            item = json.loads(line)
+            result.append(item)
     return result
 
-def write(images, kind, filename):
+def write(items, kind, filename):
     with open(filename, 'w') as f:
-        for image in images:
-            site, id, image_kind = image['id'].split('-')
-            if image_kind != kind:
+        for item in items:
+            site, id, item_kind = item['id'].split('-')
+            if item_kind != kind:
                 continue
             link = sites[site].format(id)
-            url = image['url']
+            url = item['url']
             f.write('<a href="{}"><img src="{}"></a>\n'.format(link, url))
 
 import sys
@@ -32,5 +32,5 @@ if len(args) != 3:
     sys.exit()
 input, kind, output = args
 
-images = read(input)
-write(images, kind, output)
+items = read(input)
+write(items, kind, output)
