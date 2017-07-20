@@ -26,7 +26,7 @@ cron
 cuda
 cuda-repo-ubuntu1604
 curl
-dbus-x11
+dbus
 debconf
 debconf-i18n
 debian-goodies
@@ -58,6 +58,7 @@ friendly-recovery
 gawk
 gdb
 git
+graphviz
 grep
 grub-pc
 gzip
@@ -77,7 +78,11 @@ isoquery
 jq
 jwhois
 less
+libatlas-base-dev
 libboost-all-dev
+libffi-dev
+libopenblas-dev
+libopencv-dev
 libssl-dev
 linux-generic
 locales
@@ -140,6 +145,7 @@ tar
 tcpdump
 tig
 time
+tmux
 tree
 tzdata
 ubuntu-keyring
