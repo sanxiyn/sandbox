@@ -61,4 +61,4 @@ for message in messages:
 
 for key, count in counter.most_common():
     date = time.strftime('%Y-%m-%d', time.localtime(latest[key]))
-    print key, count, date
+    print(key, count, date)

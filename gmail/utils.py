@@ -1,5 +1,5 @@
 import email.utils
-import urlparse
+import urllib.parse
 
 import lxml.html
 import requests
@@ -33,7 +33,7 @@ def date_timestamp(message):
 def extract_url(message):
     assert message.get_content_type() == 'text/plain'
     url = message.get_payload().strip()
-    assert urlparse.urlparse(url).scheme == 'http'
+    assert urllib.parse.urlparse(url).scheme == 'http'
     return url
 
 def title_of_url(url):
