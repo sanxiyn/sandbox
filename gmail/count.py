@@ -18,7 +18,7 @@ with open('password') as f:
 
 import argparse
 parser = argparse.ArgumentParser()
-group = parser.add_mutually_exclusive_group()
+group = parser.add_mutually_exclusive_group(required=True)
 group.add_argument('-a', '--address', action='store_true')
 group.add_argument('-d', '--domain', action='store_true')
 group.add_argument('-n', '--name', action='store_true')
@@ -28,15 +28,12 @@ args = parser.parse_args()
 
 if args.address:
     make_key = utils.from_address
-elif args.domain:
+if args.domain:
     make_key = utils.from_domain
-elif args.name:
+if args.name:
     make_key = utils.from_name
-elif args.subject:
+if args.subject:
     make_key = utils.from_subject
-else:
-    print 'One of --address, --domain, --name, --subject is required'
-    sys.exit()
 
 context = imapclient.create_default_context()
 context.verify_mode = ssl.CERT_NONE
