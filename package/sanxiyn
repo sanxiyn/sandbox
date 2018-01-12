@@ -46,6 +46,7 @@ firefox
 firefox-l10n-ko
 flex
 fontconfig
+fonts-arphic-uming
 fonts-dejavu-core
 fonts-nanum
 fonts-noto
@@ -80,9 +81,6 @@ libreoffice-writer
 libssl-dev
 linux-image-amd64
 linux-perf
-llvm-3.7-tools
-llvm-3.8-tools
-llvm-3.9-tools
 llvm-4.0-tools
 locales
 login
@@ -117,6 +115,7 @@ powertop
 psmisc
 pulseaudio
 python-dev
+python3.6-dev
 rr
 ruby
 sed
@@ -139,6 +138,8 @@ wamerican
 wget
 whiptail
 wicd-curses
+x11-xserver-utils
+xauth
 xclip
 xserver-xorg
 xserver-xorg-input-evdev
