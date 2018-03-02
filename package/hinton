@@ -2,6 +2,7 @@ adduser
 apt
 apt-file
 apt-listbugs
+automake
 bash
 bash-completion
 bind9-host
@@ -12,6 +13,7 @@ bzip2
 cmake
 command-not-found
 coreutils
+cpuid
 cron
 cups
 curl
@@ -32,8 +34,10 @@ firefox
 firefox-l10n-ko
 fonts-dejavu-core
 fonts-nanum
+g++-5
 gawk
 git
+gnupg
 grep
 grub-efi-amd64
 gzip
@@ -47,6 +51,9 @@ initramfs-tools
 isc-dhcp-client
 leafpad
 less
+libeigen3-dev
+libgmp-dev
+libtool
 locales
 login
 logrotate
@@ -64,12 +71,11 @@ moreutils
 nabi
 net-tools
 ninja-build
-nvidia-driver
 openjdk-8-jdk
 openssh-client
 patch
 pciutils
-perl-base
+perl
 popularity-contest
 python3.6-dev
 sed
@@ -87,4 +93,6 @@ xauth
 xclip
 xserver-xorg
 xserver-xorg-input-evdev
+xserver-xorg-video-nouveau
 zip
+zlib1g-dev
