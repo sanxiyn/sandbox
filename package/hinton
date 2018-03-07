@@ -32,6 +32,7 @@ file
 findutils
 firefox
 firefox-l10n-ko
+fonts-arphic-uming
 fonts-dejavu-core
 fonts-nanum
 g++-5
@@ -51,8 +52,13 @@ initramfs-tools
 isc-dhcp-client
 leafpad
 less
+libbz2-dev
+libdbus-1-dev
 libeigen3-dev
+libfontconfig1-dev
+libglu1-mesa-dev
 libgmp-dev
+libssl1.0-dev
 libtool
 locales
 login
@@ -71,6 +77,7 @@ moreutils
 nabi
 net-tools
 ninja-build
+nodejs
 openjdk-8-jdk
 openssh-client
 patch
@@ -86,6 +93,7 @@ tar
 unzip
 usbutils
 vim-nox
+virtualenv
 wget
 whiptail
 x11-xserver-utils
@@ -95,4 +103,3 @@ xserver-xorg
 xserver-xorg-input-evdev
 xserver-xorg-video-nouveau
 zip
-zlib1g-dev
