@@ -37,6 +37,7 @@ fonts-dejavu-core
 fonts-nanum
 g++-5
 gawk
+geeqie
 git
 gnupg
 grep
@@ -46,6 +47,7 @@ hexchat
 hostname
 ifupdown
 im-config
+imagemagick
 inetutils-ping
 inetutils-syslogd
 initramfs-tools
@@ -60,6 +62,8 @@ libglu1-mesa-dev
 libgmp-dev
 libssl1.0-dev
 libtool
+linux-image-amd64
+linux-perf
 locales
 login
 logrotate
@@ -71,6 +75,7 @@ lxterminal
 man-db
 manpages
 manpages-dev
+mercurial
 mesa-utils
 mlocate
 moreutils
@@ -85,7 +90,9 @@ pciutils
 perl
 popularity-contest
 python3.6-dev
+qemu-system
 sed
+subversion
 sudo
 system-config-printer
 systemd-sysv
@@ -102,4 +109,5 @@ xclip
 xserver-xorg
 xserver-xorg-input-evdev
 xserver-xorg-video-nouveau
+xz-utils
 zip
