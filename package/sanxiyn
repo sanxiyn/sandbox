@@ -1,5 +1,6 @@
 acpi
 adduser
+alex
 alsa-utils
 anacron
 apt
@@ -8,6 +9,7 @@ apt-listbugs
 ascii
 aspell
 aspell-en
+automake
 bash
 bash-completion
 bind9-host
@@ -18,7 +20,7 @@ bsdutils
 build-essential
 bzip2
 cabal-install
-cloc
+clang-6.0
 cmake
 command-not-found
 coreutils
@@ -56,11 +58,12 @@ fonts-symbola
 gawk
 gdb
 geeqie
-ghc
 git
+gnupg
 grep
 grub-pc
 gzip
+happy
 hexchat
 hostname
 ifupdown
@@ -69,7 +72,6 @@ imagemagick
 inetutils-ping
 inetutils-syslogd
 initramfs-tools
-initscripts
 isc-dhcp-client
 isoquery
 jq
@@ -79,9 +81,9 @@ less
 libreoffice-impress
 libreoffice-writer
 libssl-dev
+libtool
 linux-image-amd64
 linux-perf
-llvm-4.0-tools
 locales
 login
 logrotate
@@ -94,6 +96,7 @@ man-db
 manpages
 manpages-dev
 mercurial
+mesa-utils
 mlocate
 moreutils
 mplayer
@@ -112,14 +115,11 @@ perl
 pkg-config
 popularity-contest
 powertop
-psmisc
 pulseaudio
-python-dev
 python3.6-dev
 rr
 ruby
 sed
-silversearcher-ag
 strace
 subversion
 sudo
