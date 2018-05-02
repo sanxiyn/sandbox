@@ -52,14 +52,12 @@ fonts-arphic-uming
 fonts-dejavu-core
 fonts-nanum
 fonts-noto
-fonts-opensymbol
-fonts-stix
-fonts-symbola
 gawk
 gdb
 geeqie
 git
 gnupg
+golang-go
 grep
 grub-pc
 gzip
@@ -78,6 +76,8 @@ jq
 jwhois
 leafpad
 less
+libgles2-mesa-dev
+libgtk-3-dev
 libreoffice-impress
 libreoffice-writer
 libssl-dev
@@ -115,6 +115,7 @@ perl
 pkg-config
 popularity-contest
 powertop
+psmisc
 pulseaudio
 python3.6-dev
 rr
@@ -132,7 +133,7 @@ tree
 unicode
 unzip
 usbutils
-vim-nox
+vim
 virtualenv
 wamerican
 wget
@@ -147,4 +148,3 @@ xserver-xorg-input-synaptics
 xserver-xorg-video-intel
 xz-utils
 zip
-zlib1g-dev
