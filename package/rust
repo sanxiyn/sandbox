@@ -3,7 +3,6 @@ apt
 bash
 bash-completion
 bind9-host
-bison
 bsdmainutils
 bsdutils
 build-essential
@@ -25,7 +24,6 @@ dpkg
 e2fsprogs
 file
 findutils
-flex
 gawk
 gdb
 git
@@ -39,6 +37,7 @@ inetutils-syslogd
 initramfs-tools
 isc-dhcp-client
 less
+libssl-dev
 linux-image-amd64
 linux-perf
 locales
@@ -70,7 +69,7 @@ sudo
 symlinks
 systemd-sysv
 tar
-tree
+time
 unzip
 vim
 virtualenv
@@ -78,3 +77,4 @@ wget
 whiptail
 xz-utils
 zip
+zlib1g-dev
