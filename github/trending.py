@@ -56,4 +56,4 @@ if args.irc:
     client.start()
 else:
     for line in get_trending(args.language):
-        print line
+        print(line)
