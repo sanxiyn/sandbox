@@ -17,6 +17,7 @@ debconf-i18n
 debian-archive-keyring
 debian-goodies
 debianutils
+diffoscope
 diffstat
 diffutils
 dlocate
@@ -31,6 +32,7 @@ grep
 grub-efi-amd64
 gzip
 hostname
+hwloc
 ifupdown
 inetutils-ping
 inetutils-syslogd
@@ -40,6 +42,10 @@ less
 libssl-dev
 linux-image-amd64
 linux-perf
+llvm-3.9-tools
+llvm-4.0-tools
+llvm-5.0-tools
+llvm-6.0-tools
 locales
 login
 logrotate
