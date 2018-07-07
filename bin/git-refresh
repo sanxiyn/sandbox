@@ -1,3 +1,4 @@
+#!/bin/sh
 git pull
 git repack -ad
 git reflog delete 'HEAD@{0}'
