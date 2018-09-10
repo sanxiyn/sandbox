@@ -1,5 +1,6 @@
 adduser
 apt
+apt-file
 bash
 bash-completion
 bind9-host
@@ -8,6 +9,7 @@ build-essential
 bzip2
 ca-certificates
 cmake
+command-not-found
 coreutils
 cron
 curl
@@ -16,6 +18,7 @@ debian-goodies
 debianutils
 diffutils
 dlocate
+dos2unix
 dpkg-dev
 e2fsprogs
 file
@@ -36,17 +39,17 @@ locales
 login
 lsb-base
 lsb-release
-make
 man-db
+manpages
+manpages-dev
 mlocate
 net-tools
-ntp
-ntpdate
 openssh-client
 openssh-server
 popularity-contest
 psmisc
 sed
+software-properties-common
 sudo
 systemd-sysv
 tar

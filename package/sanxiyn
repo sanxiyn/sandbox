@@ -101,7 +101,6 @@ net-tools
 netcat-openbsd
 ninja-build
 nmap
-ntpdate
 opam
 openssh-client
 openssl
@@ -116,6 +115,7 @@ procps
 psmisc
 pulseaudio
 python3.6-dev
+rclone
 rr
 ruby
 sed

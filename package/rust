@@ -59,7 +59,6 @@ moreutils
 net-tools
 netcat-openbsd
 ninja-build
-ntpdate
 openssh-client
 openssh-server
 perl
