@@ -6,6 +6,7 @@ bash-completion
 bind9-host
 bsdmainutils
 bsdutils
+build-essential
 bzip2
 cmake
 command-not-found
@@ -39,7 +40,6 @@ login
 logrotate
 lsb-base
 lsb-release
-make
 man-db
 manpages
 manpages-dev
@@ -50,11 +50,11 @@ netcat-openbsd
 ninja-build
 openssh-client
 openssh-server
-patch
 perl
 popularity-contest
 procps
 psmisc
+python
 sed
 strace
 sudo
