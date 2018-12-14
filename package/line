@@ -14,7 +14,10 @@ grep
 gzip
 inetutils
 less
+make
+man-db
 mintty
+moreutils
 msys2-keyring
 msys2-launcher-git
 msys2-runtime
@@ -22,6 +25,7 @@ openssh
 pacman
 pacman-mirrors
 pkgfile
+python
 rebase
 sed
 tar
