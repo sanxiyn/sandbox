@@ -17,6 +17,7 @@ debconf-i18n
 debian-archive-keyring
 debian-goodies
 debianutils
+dialog
 diffoscope
 diffstat
 diffutils
@@ -42,10 +43,7 @@ less
 libssl-dev
 linux-image-amd64
 linux-perf
-llvm-3.9-tools
-llvm-4.0-tools
-llvm-5.0-tools
-llvm-6.0-tools
+llvm-7-tools
 locales
 login
 logrotate
@@ -65,7 +63,10 @@ perl
 pkg-config
 popularity-contest
 psmisc
-python3.6-dev
+python3-dev
+python3-pip
+reprotest
+rr
 ruby
 sed
 strace
@@ -79,7 +80,6 @@ unzip
 vim
 virtualenv
 wget
-whiptail
 xz-utils
 zip
 zlib1g-dev
