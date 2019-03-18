@@ -27,6 +27,7 @@ debian-archive-keyring
 debian-goodies
 debianutils
 devscripts
+dialog
 diffstat
 diffutils
 dlocate
@@ -102,7 +103,7 @@ powertop
 procps
 psmisc
 pulseaudio
-python3.6-dev
+python3
 rclone
 rr
 ruby
@@ -122,7 +123,6 @@ usbutils
 vim
 wamerican
 wget
-whiptail
 wicd-curses
 x11-xserver-utils
 xauth
