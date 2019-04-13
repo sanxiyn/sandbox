@@ -1,3 +1,3 @@
-deb http://mirror.scaleway.com/ubuntu-ports/ xenial main universe
-deb http://mirror.scaleway.com/ubuntu-ports/ xenial-security main universe
-deb http://mirror.scaleway.com/ubuntu-ports/ xenial-updates main universe
+deb http://ports.ubuntu.com/ubuntu-ports/ bionic main universe
+deb http://ports.ubuntu.com/ubuntu-ports/ bionic-security main universe
+deb http://ports.ubuntu.com/ubuntu-ports/ bionic-updates main universe
