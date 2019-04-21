@@ -2,6 +2,7 @@ acpi
 alsa-utils
 anacron
 apt
+apt-file
 apt-listbugs
 ascii
 aspell
@@ -11,6 +12,7 @@ bash-completion
 bind9-host
 bsdmainutils
 bzip2
+ca-certificates
 command-not-found
 coreutils
 crawl
@@ -29,6 +31,7 @@ dlocate
 dnsutils
 dpkg
 e2fsprogs
+exa
 file
 findutils
 firefox
@@ -37,9 +40,11 @@ font-manager
 fontconfig
 fonts-arphic-uming
 fonts-dejavu-core
+fonts-ipafont-mincho
 fonts-liberation2
 fonts-nanum
 fonts-noto-core
+gawk
 geeqie
 gnome-font-viewer
 grep
@@ -52,7 +57,8 @@ im-config
 imagemagick
 inetutils-ping
 inetutils-syslogd
-initramfs-tools
+inetutils-telnet
+inetutils-traceroute
 isc-dhcp-client
 isoquery
 jwhois
@@ -60,7 +66,6 @@ leafpad
 less
 linux-image-amd64
 locales
-login
 lsb-release
 lxde-core
 lxdm
@@ -78,8 +83,8 @@ nftables
 nmap
 openssh-client
 openssl
+package-update-indicator
 pciutils
-perl
 popularity-contest
 powertop
 procps
@@ -88,7 +93,7 @@ python3
 rclone
 ripgrep
 ruby
-strace
+sed
 sudo
 symlinks
 systemd-sysv
@@ -96,11 +101,11 @@ tar
 taskwarrior
 time
 transmission-gtk
-tree
 unicode
 unzip
 usbutils
 vim
+vinagre
 wamerican
 wget
 wicd-curses
