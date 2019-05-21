@@ -1,6 +1,8 @@
 apt
 apt-file
 apt-listbugs
+aspell
+aspell-en
 automake
 bash
 bash-completion
@@ -46,7 +48,15 @@ inetutils-ping
 inetutils-syslogd
 isc-dhcp-client
 less
+libboost-date-time-dev
+libboost-filesystem-dev
+libboost-iostreams-dev
+libboost-program-options-dev
+libbsd-dev
+libclang-6.0-dev
 libclang-8-dev
+libelf-dev
+libgc-dev
 libgoogle-perftools-dev
 libgtk-3-dev
 libsqlite3-dev
@@ -73,7 +83,6 @@ openssh-server
 patch
 patchutils
 pciutils
-perl
 pkg-config
 pocl-opencl-icd
 popularity-contest
@@ -85,6 +94,7 @@ qemu-system-x86
 qemu-user
 rr
 ruby-dev
+sbcl
 sed
 strace
 subversion
