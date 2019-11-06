@@ -53,7 +53,7 @@ pciutils
 popularity-contest
 procps
 psmisc
-python3-pip
+python-pip
 sed
 software-properties-common
 sudo
