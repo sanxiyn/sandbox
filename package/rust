@@ -48,7 +48,7 @@ inetutils-syslogd
 isc-dhcp-client
 less
 libbsd-dev
-libclang-9-dev
+libclang-10-dev
 libgc-dev
 libgoogle-perftools-dev
 libgtk-3-dev
@@ -59,7 +59,7 @@ libtool
 libz3-dev
 linux-image-amd64
 linux-perf
-llvm-9-dev
+llvm-10-dev
 locales
 lsb-release
 man-db
