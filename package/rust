@@ -47,16 +47,10 @@ inetutils-ping
 inetutils-syslogd
 isc-dhcp-client
 less
-libbsd-dev
 libclang-10-dev
-libgc-dev
-libgoogle-perftools-dev
 libgtk-3-dev
-libmozjs-60-dev
-libsqlite3-dev
 libssl-dev
 libtool
-libz3-dev
 linux-image-amd64
 linux-perf
 llvm-10-dev
@@ -70,6 +64,7 @@ mlocate
 moreutils
 net-tools
 netcat-openbsd
+nginx-light
 ninja-build
 openssh-client
 openssh-server
@@ -83,6 +78,7 @@ psmisc
 python3-dev
 python3-pip
 qemu-user-static
+racket
 rr
 ruby-dev
 sed
@@ -97,4 +93,3 @@ vim
 wget
 xz-utils
 zip
-zlib1g-dev
