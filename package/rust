@@ -7,9 +7,9 @@ automake
 bash
 bash-completion
 beignet-opencl-icd
+bind9-dnsutils
 bind9-host
 bison
-bsdmainutils
 build-essential
 bzip2
 ca-certificates
@@ -17,6 +17,7 @@ clinfo
 cmake
 command-not-found
 coreutils
+cpuinfo
 cron
 curl
 debconf
@@ -37,6 +38,7 @@ flex
 gawk
 gdb
 git
+golang-go
 grep
 grub-efi-amd64
 gzip
@@ -45,7 +47,9 @@ hwloc
 ifupdown
 inetutils-ping
 inetutils-syslogd
+irqbalance
 isc-dhcp-client
+jq
 less
 libclang-10-dev
 libgtk-3-dev
@@ -62,6 +66,7 @@ manpages-dev
 mercurial
 mlocate
 moreutils
+ncal
 net-tools
 netcat-openbsd
 nginx-light
