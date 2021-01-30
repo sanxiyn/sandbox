@@ -2,6 +2,7 @@ apt
 apt-file
 bash
 bash-completion
+bind9-dnsutils
 bind9-host
 build-essential
 bzip2
@@ -32,7 +33,6 @@ hostname
 imagemagick
 inetutils-ping
 inetutils-syslogd
-inetutils-traceroute
 iptables
 isc-dhcp-client
 less
@@ -42,8 +42,7 @@ libproj-dev
 linux-image-aws
 locales
 lsb-release
-lsof
-ltrace
+mailutils
 man-db
 manpages
 manpages-dev
@@ -52,6 +51,7 @@ moreutils
 net-tools
 netcat-openbsd
 nginx-light
+nullmailer
 openssh-client
 openssh-server
 patch
