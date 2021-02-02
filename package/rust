@@ -1,15 +1,11 @@
 apt
 apt-file
 apt-listbugs
-aspell
-aspell-en
-automake
 bash
 bash-completion
 beignet-opencl-icd
 bind9-dnsutils
 bind9-host
-bison
 build-essential
 bzip2
 ca-certificates
@@ -17,7 +13,6 @@ clinfo
 cmake
 command-not-found
 coreutils
-cpuinfo
 cron
 curl
 debconf
@@ -34,7 +29,6 @@ dpkg
 e2fsprogs
 file
 findutils
-flex
 gawk
 gdb
 git
@@ -43,7 +37,6 @@ grep
 grub-efi-amd64
 gzip
 hostname
-hwloc
 ifupdown
 inetutils-ping
 inetutils-syslogd
@@ -66,7 +59,6 @@ lsb-release
 man-db
 manpages
 manpages-dev
-mercurial
 mesa-vulkan-drivers
 mlocate
 moreutils
