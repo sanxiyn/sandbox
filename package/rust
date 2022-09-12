@@ -34,6 +34,8 @@ e2fsprogs
 fd-find
 file
 findutils
+fonts-dejavu-core
+fonts-nanum
 gawk
 gdb
 ghc
@@ -52,13 +54,16 @@ isc-dhcp-client
 jq
 julia
 less
+libclang-13-dev
 libclang-14-dev
 libgtk-4-dev
 liblld-14-dev
 libssl-dev
 linux-image-amd64
 linux-perf
+llvm-13-dev
 llvm-14-dev
+lmodern
 locales
 lsb-release
 man-db
@@ -79,6 +84,7 @@ ocaml
 opam
 openssh-client
 openssh-server
+pandoc
 patch
 patchutils
 pciutils
@@ -99,8 +105,12 @@ subversion
 sudo
 systemd-sysv
 tar
+texlive-fonts-recommended
+texlive-lang-cjk
+texlive-latex-recommended
+texlive-pictures
+texlive-xetex
 time
-tin
 tzdata
 unzip
 vim
