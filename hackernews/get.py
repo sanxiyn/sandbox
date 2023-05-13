@@ -29,6 +29,8 @@ async def main(user):
             progress = tqdm(aws_as_completed, total=len(items))
             for aw in progress:
                 item = await aw
+                if item['type'] != 'comment':
+                    continue
                 s = json.dumps(item)
                 print(s, file=f)
 
