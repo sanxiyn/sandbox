@@ -18,7 +18,7 @@ def search(topic):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('topic')
+    parser.add_argument('topic', nargs='*')
     args = parser.parse_args()
-    topic = args.topic
+    topic = ' '.join(args.topic)
     search(topic)
