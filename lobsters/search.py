@@ -1,9 +1,11 @@
 import argparse
+import urllib.parse
 
 import lxml.html
 import requests
 
 def search(topic):
+    topic = urllib.parse.quote(topic)
     url = 'https://lobste.rs/search?what=stories&order=newest&q=' + topic
     response = requests.get(url)
     html = lxml.html.fromstring(response.text)
