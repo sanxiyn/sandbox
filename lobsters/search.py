@@ -1,3 +1,5 @@
+import argparse
+
 import lxml.html
 import requests
 
@@ -12,9 +14,9 @@ def search(topic):
         text = item.text_content()
         print(f' * {text}')
 
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument('topic')
-args = parser.parse_args()
-
-search(args.topic)
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('topic')
+    args = parser.parse_args()
+    topic = args.topic
+    search(topic)
