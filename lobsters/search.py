@@ -5,6 +5,8 @@ import lxml.html
 import requests
 
 def search(topic):
+    if ' ' in topic:
+        topic = f'"{topic}"'
     topic = urllib.parse.quote(topic)
     url = 'https://lobste.rs/search?what=stories&order=newest&q=' + topic
     response = requests.get(url)
