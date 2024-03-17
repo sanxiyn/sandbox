@@ -19,6 +19,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | \
     sh -s -- -y --default-toolchain none --no-modify-path
 ENV PATH=/root/.cargo/bin:$PATH
 RUN rustup toolchain install --profile minimal --component rustc-codegen-cranelift -- nightly-2024-03-17
+ENV RUSTUP_TOOLCHAIN=nightly-2024-03-17
 RUN git clone --branch main --depth 1 https://github.com/Byron/gitoxide.git
 WORKDIR /root/gitoxide
 RUN RUSTC_TARGET=$(rustc -vV | grep host: | cut -d ' ' -f 2) \
