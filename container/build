@@ -1,0 +1,9 @@
+build_all () {
+  podman build -f $1 --build-arg IMAGE=debian:buster-slim --tag $2:buster
+  podman build -f $1 --build-arg IMAGE=debian:bullseye-slim --tag $2:bullseye
+  podman build -f $1 --build-arg IMAGE=debian:bookworm-slim --tag $2:bookworm
+  podman build -f $1 --build-arg IMAGE=ubuntu:focal --tag $2:focal
+  podman build -f $1 --build-arg IMAGE=ubuntu:jammy --tag $2:jammy
+}
+
+build_all Containerfile.gitoxide gitoxide
