@@ -28,16 +28,18 @@ def print_sections(filename):
             parents.append(elem)
         elif event == 'end':
             parents.pop()
-            if match_uslm(elem.tag) == 'heading':
-                parent = parents[-1]
-                if match_uslm(parent.tag) == 'section':
-                    identifier = parent.get('identifier')
-                    if identifier is None:
-                        continue
-                    status = parent.get('status')
-                    if status in ('renumbered', 'repealed'):
-                        continue
-                    print(identifier, elem.text.strip())
+            if match_uslm(elem.tag) != 'heading':
+                continue
+            parent = parents[-1]
+            if match_uslm(parent.tag) != 'section':
+                continue
+            identifier = parent.get('identifier')
+            if identifier is None:
+                continue
+            status = parent.get('status')
+            if status in ('renumbered', 'repealed'):
+                continue
+            print(identifier, elem.text.strip())
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
