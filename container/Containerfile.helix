@@ -1,0 +1,24 @@
+ARG IMAGE
+FROM docker.io/library/$IMAGE
+MAINTAINER Seo Sanghyeon <sanxiyn@gmail.com>
+
+WORKDIR /root
+RUN apt update \
+    && apt upgrade -y \
+    && DEBIAN_FRONTEND=noninteractive apt install -y tzdata \
+    && apt install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        g++ \
+        git \
+        libc-dev \
+    && apt-get clean
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | \
+    sh -s -- -y --default-toolchain none --no-modify-path
+ENV PATH=/root/.cargo/bin:$PATH
+RUN rustup toolchain install --profile minimal --component rustc-codegen-cranelift -- nightly-2024-04-01
+ENV RUSTUP_TOOLCHAIN=nightly-2024-04-01
+RUN git clone --branch 24.03 --depth 1 https://github.com/helix-editor/helix.git
+WORKDIR /root/helix
+RUN RUSTC_TARGET=$(rustc -vV | grep host: | cut -d ' ' -f 2) \
+    && cargo fetch --target $RUSTC_TARGET
