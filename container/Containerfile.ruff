@@ -7,12 +7,10 @@ RUN apt update \
     && apt upgrade -y \
     && DEBIAN_FRONTEND=noninteractive apt install -y tzdata \
     && apt install -y --no-install-recommends \
+        build-essential \
         ca-certificates \
         curl \
-        gcc \
         git \
-        libc-dev \
-        make \
     && apt-get clean
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | \
     sh -s -- -y --default-toolchain none --no-modify-path
