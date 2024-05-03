@@ -1,9 +1,28 @@
-build_all () {
-  podman build -f $1 --build-arg IMAGE=debian:buster-slim --tag $2:buster
-  podman build -f $1 --build-arg IMAGE=debian:bullseye-slim --tag $2:bullseye
-  podman build -f $1 --build-arg IMAGE=debian:bookworm-slim --tag $2:bookworm
-  podman build -f $1 --build-arg IMAGE=ubuntu:focal --tag $2:focal
-  podman build -f $1 --build-arg IMAGE=ubuntu:jammy --tag $2:jammy
+# Supported versions
+#
+# 2019 Debian Buster
+# 2020 Ubuntu Focal
+# 2021 Debian Bullseye
+# 2022 Ubuntu Jammy
+# 2023 Debian Bookworm
+
+codename_to_image () {
+  case $1 in
+    buster) echo debian:buster-slim;;
+    focal) echo ubuntu:focal;;
+    bullseye) echo debian:bullseye-slim;;
+    jammy) echo ubuntu:jammy;;
+    bookworm) echo debian:bookworm-slim;;
+  esac
 }
 
-build_all Containerfile.gitoxide gitoxide
+build () {
+  project=$1
+  codename=$2
+  filename=Containerfile.$project
+  image=$(codename_to_image $codename)
+  tag=$project:$codename
+  podman build -f $filename --build-arg IMAGE=$image --tag $tag
+}
+
+build $1 $2
