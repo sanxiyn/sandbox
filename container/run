@@ -1,0 +1,7 @@
+run () {
+  mkdir -p log
+  podman run --rm $1:$2 cargo build 2>&1 | ts -s | tee log/$1.log
+  podman run --rm --env 'RUSTFLAGS=-Z codegen-backend=cranelift' $1:$2 cargo build 2>&1 | ts -s | tee log/$1.cranelift.log
+}
+
+run $1 $2
