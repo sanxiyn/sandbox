@@ -17,7 +17,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | \
 ENV PATH=/root/.cargo/bin:$PATH
 RUN rustup toolchain install --profile minimal --component rustc-codegen-cranelift -- nightly-2024-05-01
 ENV RUSTUP_TOOLCHAIN=nightly-2024-05-01
-RUN git clone --branch v0.3.0 --depth 1 https://github.com/astral-sh/ruff.git
+RUN git clone --branch v0.4.0 --depth 1 https://github.com/astral-sh/ruff.git
 WORKDIR /root/ruff
 RUN RUSTC_TARGET=$(rustc -vV | grep host: | cut -d ' ' -f 2) \
     && cargo fetch --target $RUSTC_TARGET
