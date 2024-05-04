@@ -11,7 +11,6 @@ bsdgames
 build-essential
 bzip2
 ca-certificates
-cargo-outdated
 cloc
 cmake
 command-not-found
@@ -52,7 +51,7 @@ initramfs-tools
 iptraf-ng
 irqbalance
 isc-dhcp-client
-lalrpop
+isoquery
 less
 libclang-17-dev
 libgtk-4-dev
@@ -81,11 +80,13 @@ ninja-build
 nodejs
 npm
 nullmailer
+openjdk-17-jdk
 openssh-client
 openssh-server
 patch
 patchutils
 pciutils
+pdftk-java
 perl
 pkg-config
 plocate
@@ -98,7 +99,6 @@ python3-pip
 python3-venv
 ripgrep
 rr
-ruby
 rustup
 screen
 sed
