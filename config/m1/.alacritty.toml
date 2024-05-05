@@ -1,0 +1,9 @@
+shell = "/opt/homebrew/bin/bash"
+
+[window]
+dimensions = { columns = 80, lines = 25 }
+position = { x = 1600, y = 950 }
+
+[font]
+normal = { family = "Monaco", style = "Regular" }
+size = 12
