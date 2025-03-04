@@ -15,7 +15,7 @@ fn search(topic: &str) {
     let url = Url::parse_with_params(URL, params).unwrap();
     let response = reqwest::blocking::get(url).unwrap();
     let html = Document::from_read(response).unwrap();
-    let count = html.find(Name("h2")).next().unwrap().text();
+    let count = html.find(Class("heading")).next().unwrap().text();
     let count = count.trim();
     let count = count.split_whitespace().take(2).collect::<Vec<_>>().join(" ");
     println!("{}", count);
