@@ -1,3 +1,4 @@
+[terminal]
 shell = "/opt/homebrew/bin/bash"
 
 [window]
